@@ -3,7 +3,6 @@
  * Created by PhpStorm.
  * User: tanhaipeng
  * Date: 2017/8/28
- * Time: 下午6:56
+ * Time: 下午7:16
  */
 
-require_once 'config.php';
