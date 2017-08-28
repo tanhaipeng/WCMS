@@ -1,2 +1,2 @@
 # WCMS
-A Weixin Official Accounts CMS Platform
+A WeiChat Official Accounts CMS Platform
