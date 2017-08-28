@@ -6,16 +6,12 @@
  * Time: 下午7:26
  */
 
-$token = 'tanhp';
-$aeskey = 'kCfWpLvD0BQu9esP5yeR0LjjhexwrQN26vtV63zDpze';
+require_once 'config.php';
+require_once 'lib/auth.php';
 
-$timestamp = $_GET['timestamp'];
-$nonce = $_GET['nonce'];
 $signature = $_GET['signature'];
+$timestr = srvAuth($token);
 
-$array = [$timestamp, $nonce, $token];
-sort($array);
-$timestr = sha1(implode('', $array));
 if ($timestr == $signature) {
     echo $_GET['echostr'];
     die();
