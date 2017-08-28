@@ -32,4 +32,9 @@ class Auth extends CI_Controller
         $timestr = sha1(implode('', $array));
         return $timestr;
     }
+
+    public function test()
+    {
+        echo 'test';
+    }
 }
