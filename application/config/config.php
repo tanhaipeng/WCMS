@@ -526,3 +526,6 @@ $config['proxy_ips'] = '';
  * Wechat config
  */
 $config['token'] = 'tanhp';
+$config['appid'] = 'wxcd58add62d38e871';
+$config['secret'] = 'a68df8c814e5ab1b0e620e164d47f4f2';
+$config['token_api'] = 'https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential';

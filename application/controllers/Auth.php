@@ -131,6 +131,7 @@ class Auth extends CI_Controller
                 $template .= "</Articles>
                             </xml>";
 
+
                 echo sprintf($template, $toUser, $fromUser, $time, $msgType, count($array));
             }
         }
