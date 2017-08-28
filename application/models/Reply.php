@@ -18,8 +18,22 @@ class Reply extends CI_Model
      * @param $appid
      * @param $secret
      */
-    public function getToken($appid, $secret)
+    public function getWxToken($appid, $secret)
     {
+        $param = array(
+            'appid' => $this->config->item('appid'),
+            'secret' => $this->config->item('secret'),
+        );
+        $api = $this->config->item('token_api') . '&' . http_build_query($param);
+        $res = json_encode(file_get_contents($api, true));
+        if ($res != false && isset($res['access_token'])) {
+            echo $res['access_token'];
+        }
+    }
+
+    public function getWxIp($token)
+    {
+        $api = 'https://api.weixin.qq.com/cgi-bin/getcallbackip?access_token=ACCESS_TOKEN';
         $param = array(
             'appid' => $this->config->item('appid'),
             'secret' => $this->config->item('secret'),
