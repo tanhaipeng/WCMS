@@ -76,6 +76,7 @@ class Auth extends CI_Controller
                     echo $info;
                 }
                 break;
+
             default:
                 break;
         }
