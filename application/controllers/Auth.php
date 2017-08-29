@@ -13,6 +13,9 @@ class Auth extends CI_Controller
         parent::__construct();
     }
 
+    /**
+     * 开发者授权&用户每次发送消息调用
+     */
     public function index()
     {
         $token = $this->config->item('token');
@@ -26,6 +29,11 @@ class Auth extends CI_Controller
         }
     }
 
+    /**
+     * 授权校验
+     * @param $token
+     * @return string
+     */
     private function auth($token)
     {
         $timestamp = $this->input->get('timestamp');
@@ -36,11 +44,17 @@ class Auth extends CI_Controller
         return $timestr;
     }
 
+    /**
+     * for test
+     */
     public function test()
     {
         echo 'test';
     }
 
+    /**
+     * 接收消息处理
+     */
     public function recv()
     {
         // 接收消息

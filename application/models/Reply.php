@@ -14,9 +14,10 @@ class Reply extends CI_Model
     }
 
     /**
-     * 获取Token，有效期2小时，每天2000次
+     * 获取Token(有效期2小时，每天2000次)
      * @param $appid
      * @param $secret
+     * @return bool
      */
     public function getWxToken($appid, $secret)
     {
@@ -27,21 +28,24 @@ class Reply extends CI_Model
         $api = $this->config->item('token_api') . '&' . http_build_query($param);
         $res = json_encode(file_get_contents($api, true));
         if ($res != false && isset($res['access_token'])) {
-            echo $res['access_token'];
+            return $res['access_token'];
         }
+        return false;
     }
 
+    /**
+     * 获取微信服务器地址
+     * @param $token
+     * @return bool
+     */
     public function getWxIp($token)
     {
-        $api = 'https://api.weixin.qq.com/cgi-bin/getcallbackip?access_token=ACCESS_TOKEN';
-        $param = array(
-            'appid' => $this->config->item('appid'),
-            'secret' => $this->config->item('secret'),
-        );
-        $api = $this->config->item('token_api') . '&' . http_build_query($param);
+        $api = $this->config->item('server_api') . $token;
         $res = json_encode(file_get_contents($api, true));
-        if ($res != false && isset($res['access_token'])) {
-            echo $res['access_token'];
+        if ($res != false && isset($res['ip_list'])) {
+            return $res['ip_list'];
         }
+        return false;
     }
+
 }
