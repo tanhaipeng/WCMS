@@ -65,13 +65,13 @@ class Auth extends CI_Controller
         // 分发消息
         switch (strtolower($postObj->MsgType)) {
             case 'event':
-                $info = $this->Reply->eventMsg($postStr);
+                $info = $this->Reply->handleEventMsg($postObj);
                 if ($info) {
                     echo $info;
                 }
                 break;
             case 'text':
-                $info = $this->Reply->textMsg($postStr);
+                $info = $this->Reply->handleTextMsg($postObj);
                 if ($info) {
                     echo $info;
                 }

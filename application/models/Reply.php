@@ -49,11 +49,11 @@ class Reply extends CI_Model
     }
 
     /**
-     *
+     * 处理event消息
      * @param $postObj
      * @return string
      */
-    public function eventMsg($postObj)
+    public function handleEventMsg($postObj)
     {
         // 订阅事件
         if ($postObj->Event == 'subscribe') {
@@ -76,13 +76,31 @@ class Reply extends CI_Model
     }
 
     /**
-     *
+     * 处理text消息
      * @param $postObj
      * @return string
      */
-    public function textMsg($postObj)
+    public function handleTextMsg($postObj)
     {
-        /*
+        $key = $postObj->Content;
+        if ($key) {
+            $info = $this->getDbInfo($key);
+            if ($info['type'] == 'text') {
+                $this->getTextMsg($info);
+            }
+            if ($info['type'] == 'image') {
+                $this->getImgMsg($info);
+            }
+        }
+    }
+
+    /**
+     * 封装文本消息
+     * @param $postObj
+     * @return string
+     */
+    private function getTextMsg($postObj)
+    {
         $toUser = $postObj->FromUserName;
         $fromUser = $postObj->ToUserName;
         $time = time();
@@ -108,8 +126,15 @@ class Reply extends CI_Model
                 $content = '输入非法';
         }
         return sprintf($template, $toUser, $fromUser, $time, $msgType, $content);
-        */
+    }
 
+    /**
+     * 封装图文消息
+     * @param $postObj
+     * @return string
+     */
+    private function getImgMsg($postObj)
+    {
         $toUser = $postObj->FromUserName;
         $fromUser = $postObj->ToUserName;
         $time = time();
@@ -145,5 +170,14 @@ class Reply extends CI_Model
                             </xml>";
             return sprintf($template, $toUser, $fromUser, $time, $msgType, count($array));
         }
+    }
+
+    /**
+     * 从数据库获取消息
+     * @param $key
+     */
+    private function getDbInfo($key)
+    {
+
     }
 }
