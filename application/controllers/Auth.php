@@ -11,7 +11,7 @@ class Auth extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-        $this->load->model('Reply');
+        //$this->load->model('Reply');
     }
 
     /**
@@ -62,6 +62,7 @@ class Auth extends CI_Controller
         $postStr = $GLOBALS['HTTP_RAW_POST_DATA'];
         // 处理消息
         $postObj = simplexml_load_string($postStr);
+        /*
         // 分发消息
         switch (strtolower($postObj->MsgType)) {
             case 'event':
@@ -76,9 +77,30 @@ class Auth extends CI_Controller
                     echo $info;
                 }
                 break;
-
             default:
                 break;
         }
+        */
+        /**
+         * 菜单消息
+         */
+        if (strtolower($postObj->Event) == 'click') {
+            if (strtolower($postObj->EventKey) == 'itme1') {
+                $toUser = $postObj->FromUserName;
+                $fromUser = $postObj->ToUserName;
+                $time = time();
+                $msgType = 'text';
+                $template = "<xml>
+                            <ToUserName><![CDATA[%s]]></ToUserName>
+                            <FromUserName><![CDATA[%s]]></FromUserName>
+                            <CreateTime>%s</CreateTime>
+                            <MsgType><![CDATA[%s]]></MsgType>
+                            <Content><![CDATA[%s]]></Content>
+                            </xml>";
+                $content = 'replay tanhp1';
+                echo sprintf($template, $toUser, $fromUser, $time, $msgType, $content);
+            }
+        }
+
     }
 }
