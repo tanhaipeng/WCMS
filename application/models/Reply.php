@@ -48,4 +48,102 @@ class Reply extends CI_Model
         return false;
     }
 
+    /**
+     *
+     * @param $postObj
+     * @return string
+     */
+    public function eventMsg($postObj)
+    {
+        // 订阅事件
+        if ($postObj->Event == 'subscribe') {
+            $toUser = $postObj->FromUserName;
+            $fromUser = $postObj->ToUserName;
+            $time = time();
+            $msgType = 'text';
+            $content = 'welcome';
+            $template = "<xml>
+                            <ToUserName><![CDATA[%s]]></ToUserName>
+                            <FromUserName><![CDATA[%s]]></FromUserName>
+                            <CreateTime>%s</CreateTime>
+                            <MsgType><![CDATA[%s]]></MsgType>
+                            <Content><![CDATA[%s]]></Content>
+                            </xml>";
+            $info = sprintf($template, $toUser, $fromUser, $time, $msgType, $content);
+            return $info;
+        }
+        return false;
+    }
+
+    /**
+     *
+     * @param $postObj
+     * @return string
+     */
+    public function textMsg($postObj)
+    {
+        /*
+        $toUser = $postObj->FromUserName;
+        $fromUser = $postObj->ToUserName;
+        $time = time();
+        $msgType = 'text';
+        $template = "<xml>
+                            <ToUserName><![CDATA[%s]]></ToUserName>
+                            <FromUserName><![CDATA[%s]]></FromUserName>
+                            <CreateTime>%s</CreateTime>
+                            <MsgType><![CDATA[%s]]></MsgType>
+                            <Content><![CDATA[%s]]></Content>
+                            </xml>";
+        switch ($postObj->Content) {
+            case "1":
+                $content = 'replay tanhp1';
+                break;
+            case "2":
+                $content = 'replay tanhp1';
+                break;
+            case "3":
+                $content = "<a href='www.baidu.com'>百度</a>";
+                break;
+            default:
+                $content = '输入非法';
+        }
+        return sprintf($template, $toUser, $fromUser, $time, $msgType, $content);
+        */
+
+        $toUser = $postObj->FromUserName;
+        $fromUser = $postObj->ToUserName;
+        $time = time();
+        $msgType = 'news';
+        $array = [array(
+            'title' => 'imooc',
+            'description' => 'description',
+            'picurl' => 'http://h.hiphotos.baidu.com/image/pic/item/8718367adab44aeda9f1f424ba1c8701a08bfbb7.jpg',
+            'url' => 'www.baidu.com',
+        ), array(
+            'title' => 'imooc',
+            'description' => 'description',
+            'picurl' => 'http://h.hiphotos.baidu.com/image/pic/item/8718367adab44aeda9f1f424ba1c8701a08bfbb7.jpg',
+            'url' => 'www.baidu.com',
+        )];
+        if ($postObj->Content == 'tuwen') {
+            $template = "<xml>
+                            <ToUserName><![CDATA[%s]]></ToUserName>
+                            <FromUserName><![CDATA[%s]]></FromUserName>
+                            <CreateTime>%d</CreateTime>
+                            <MsgType><![CDATA[%s]]></MsgType>
+                            <ArticleCount>%d</ArticleCount>
+                            <Articles>";
+            foreach ($array as $k => $v) {
+                $template .= "<item>
+                                <Title><![CDATA[{$v['title']}]]></Title> 
+                                <Description><![CDATA[{$v['description']}]]></Description>
+                                <PicUrl><![CDATA[{$v['picurl']}]]></PicUrl>
+                                <Url><![CDATA[{$v['url']}]]></Url>
+                                </item>";
+            }
+            $template .= "</Articles>
+                            </xml>";
+            return sprintf($template, $toUser, $fromUser, $time, $msgType, count($array));
+        }
+    }
 }
