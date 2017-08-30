@@ -9,7 +9,7 @@
         <li class='dropdown'>
             <a class='dropdown-toggle' data-toggle='dropdown' href='#'>
                 <i class='icon-envelope'></i>
-                Messages
+                通知
                 <span class='badge'>5</span>
                 <b class='caret'></b>
             </a>
@@ -31,7 +31,7 @@
         <li>
             <a href='#'>
                 <i class='icon-cog'></i>
-                Settings
+                设置
             </a>
         </li>
         <li class='dropdown user'>
@@ -61,16 +61,17 @@
         <ul id='dock'>
             <li class='active launcher'>
                 <i class='icon-dashboard'></i>
-                <a href="/wx/index.php/admin/index">Dashboard</a>
+                <a href="/wx/index.php/admin/index">平台概览</a>
             </li>
             <li class='launcher'>
                 <i class='icon-file-text-alt'></i>
-                <a href="/wx/index.php/admin/forms">Forms</a>
+                <a href="/wx/index.php/admin/forms">消息群发</a>
             </li>
             <li class='launcher'>
                 <i class='icon-table'></i>
-                <a href="/wx/index.php/admin/tables">Tables</a>
+                <a href="/wx/index.php/admin/tables">帐号管理</a>
             </li>
+            <!--
             <li class='launcher dropdown hover'>
                 <i class='icon-flag'></i>
                 <a href='#'>Reports</a>
@@ -99,8 +100,9 @@
                 <i class='icon-bug'></i>
                 <a href='#'>Feedback</a>
             </li>
+            -->
         </ul>
-        <div data-toggle='tooltip' id='beaker' title='Made by lab2023'></div>
+        <div data-toggle='tooltip' id='beaker' title='Made by AllinGo'></div>
 
     </section>
     <!-- Tools -->
