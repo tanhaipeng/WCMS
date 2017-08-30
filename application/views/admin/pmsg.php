@@ -135,18 +135,14 @@
                         <div class='form-group'>
                             <label class='control-label'>群发帐号</label>
                             <br>
-                            <div class='checkbox-inline'>
-                                <input type='checkbox' value='test1'>
-                                test1
-                            </div>
-                            <div class='checkbox-inline'>
-                                <input type='checkbox' value='test2'>
-                                test2
-                            </div>
-                            <div class='checkbox-inline'>
-                                <input type='checkbox' value='test3'>
-                                test3
-                            </div>
+                            <?php
+                            foreach ($accounts as $account) {
+                                echo "<div class='checkbox-inline'>
+                                <input type='checkbox' value='{$account}'>
+                                {$account}
+                                </div>";
+                            }
+                            ?>
                         </div>
                     </fieldset>
                     <div class='form-actions'>

@@ -13,6 +13,7 @@ class Admin extends CI_Controller
     public function __construct()
     {
         parent::__construct();
+        $this->load->model('Account');
         $this->assets = $this->config->item('assets_path');
     }
 
@@ -28,8 +29,10 @@ class Admin extends CI_Controller
 
     public function pmsg()
     {
+        $accounts = $this->Account->getAccounts();
         $data = array(
             'assets' => $this->assets,
+            'accounts' => $accounts,
         );
         $this->load->view('admin/header', $data);
         $this->load->view('admin/pmsg', $data);
