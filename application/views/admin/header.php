@@ -8,6 +8,5 @@
     <meta content='' name='description'>
     <meta content='' name='keywords'>
     <link href="<?= $assets . "/stylesheets/application-a07755f5.css" ?>" rel="stylesheet" type="text/css"/>
-    <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
-    <link href="<?= $assets . "/images/favicon.ico" ?>" rel="icon" type="image/ico"/>
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/3.2.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
 </head>
