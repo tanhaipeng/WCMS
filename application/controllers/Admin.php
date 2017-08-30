@@ -12,4 +12,11 @@ class Admin extends CI_Controller
     {
         parent::__construct();
     }
+
+    public function index()
+    {
+        $this->load->view('admin/header');
+        $this->load->view('admin/index');
+        $this->load->view('admin/footer');
+    }
 }
