@@ -3,7 +3,7 @@
 <div class='navbar navbar-default' id='navbar'>
     <a class='navbar-brand' href='#'>
         <i class='icon-beer'></i>
-        Hierapolis
+        Dashboard
     </a>
     <ul class='nav navbar-nav pull-right'>
         <li class='dropdown'>
@@ -61,15 +61,15 @@
         <ul id='dock'>
             <li class='active launcher'>
                 <i class='icon-dashboard'></i>
-                <a href="/dashboard.html">Dashboard</a>
+                <a href="/wx/index.php/admin/index">Dashboard</a>
             </li>
             <li class='launcher'>
                 <i class='icon-file-text-alt'></i>
-                <a href="/forms.html">Forms</a>
+                <a href="/wx/index.php/admin/forms">Forms</a>
             </li>
             <li class='launcher'>
                 <i class='icon-table'></i>
-                <a href="/tables.html">Tables</a>
+                <a href="/wx/index.php/admin/tables">Tables</a>
             </li>
             <li class='launcher dropdown hover'>
                 <i class='icon-flag'></i>

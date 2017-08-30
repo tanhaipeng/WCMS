@@ -25,4 +25,24 @@ class Admin extends CI_Controller
         $this->load->view('admin/index', $data);
         $this->load->view('admin/footer', $data);
     }
+
+    public function forms()
+    {
+        $data = array(
+            'assets' => $this->assets,
+        );
+        $this->load->view('admin/header', $data);
+        $this->load->view('admin/forms', $data);
+        $this->load->view('admin/footer', $data);
+    }
+
+    public function tables()
+    {
+        $data = array(
+            'assets' => $this->assets,
+        );
+        $this->load->view('admin/header', $data);
+        $this->load->view('admin/tables', $data);
+        $this->load->view('admin/footer', $data);
+    }
 }
