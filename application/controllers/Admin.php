@@ -26,23 +26,23 @@ class Admin extends CI_Controller
         $this->load->view('admin/footer', $data);
     }
 
-    public function forms()
+    public function pmsg()
     {
         $data = array(
             'assets' => $this->assets,
         );
         $this->load->view('admin/header', $data);
-        $this->load->view('admin/forms', $data);
+        $this->load->view('admin/pmsg', $data);
         $this->load->view('admin/footer', $data);
     }
 
-    public function tables()
+    public function wacc()
     {
         $data = array(
             'assets' => $this->assets,
         );
         $this->load->view('admin/header', $data);
-        $this->load->view('admin/tables', $data);
+        $this->load->view('admin/wacc', $data);
         $this->load->view('admin/footer', $data);
     }
 }

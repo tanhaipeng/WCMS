@@ -37,17 +37,17 @@
         <li class='dropdown user'>
             <a class='dropdown-toggle' data-toggle='dropdown' href='#'>
                 <i class='icon-user'></i>
-                <strong>John DOE</strong>
+                <strong>AllinGo</strong>
                 <img class="img-rounded" src="http://placehold.it/20x20/ccc/777"/>
                 <b class='caret'></b>
             </a>
             <ul class='dropdown-menu'>
                 <li>
-                    <a href='#'>Edit Profile</a>
+                    <a href='#'>个人中心</a>
                 </li>
                 <li class='divider'></li>
                 <li>
-                    <a href="/">Sign out</a>
+                    <a href="/">注销</a>
                 </li>
             </ul>
         </li>
@@ -65,11 +65,11 @@
             </li>
             <li class='launcher'>
                 <i class='icon-file-text-alt'></i>
-                <a href="/wx/index.php/admin/forms">消息群发</a>
+                <a href="/wx/index.php/admin/pmsg">消息群发</a>
             </li>
             <li class='launcher'>
                 <i class='icon-table'></i>
-                <a href="/wx/index.php/admin/tables">帐号管理</a>
+                <a href="/wx/index.php/admin/wacc">帐号管理</a>
             </li>
             <!--
             <li class='launcher dropdown hover'>
@@ -102,15 +102,14 @@
             </li>
             -->
         </ul>
+        <!--
         <div data-toggle='tooltip' id='beaker' title='Made by AllinGo'></div>
-
+        -->
     </section>
     <!-- Tools -->
     <section id='tools'>
         <ul class='breadcrumb' id='breadcrumb'>
-            <li class='title'>Dashboard</li>
-            <li><a href="#">Lorem</a></li>
-            <li class='active'><a href="#">ipsum</a></li>
+            <li class='title'>平台概览</li>
         </ul>
 
         <div id='toolbar'>
@@ -123,7 +122,9 @@
                 </a>
                 <a class='btn' data-toggle='toolbar-tooltip' href='#' title='Calendar'>
                     <i class='icon-calendar'></i>
-                    <span class='badge'>3</span>
+                    <!--
+                    <span class='badge'>0</span>
+                    -->
                 </a>
                 <a class='btn' data-toggle='toolbar-tooltip' href='#' title='Lemon'>
                     <i class='icon-lemon'></i>
@@ -135,7 +136,6 @@
             <div class='label label-info'>
                 Info
             </div>
-
         </div>
 
     </section>
