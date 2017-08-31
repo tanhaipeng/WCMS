@@ -135,6 +135,11 @@
                         <div class='form-group'>
                             <label class='control-label'>群发帐号</label>
                             <br>
+                            <div class='checkbox-inline'>
+                                <input type='checkbox' value='all'>
+                                全选
+                            </div>
+                            <br>
                             <?php
                             foreach ($accounts as $account) {
                                 echo "<div class='checkbox-inline'>
