@@ -7,6 +7,6 @@
     <meta content='' name='author'>
     <meta content='' name='description'>
     <meta content='' name='keywords'>
-    <link href="<?= $assets . "/stylesheets/application-a07755f5.css" ?>" rel="stylesheet" type="text/css"/>
+    <link href="<?= $assets . "/stylesheets/application.css" ?>" rel="stylesheet" type="text/css"/>
     <link href="http://netdna.bootstrapcdn.com/font-awesome/3.2.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
 </head>
