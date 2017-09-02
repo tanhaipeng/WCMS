@@ -13,12 +13,17 @@ class Admin extends CI_Controller
     public function __construct()
     {
         parent::__construct();
+        $this->load->library('session');
         $this->load->model('Account');
         $this->assets = $this->config->item('assets_path');
     }
 
     public function index()
     {
+        if ($this->session->has_userdata('login_status') == false) {
+            header("Location: /wx/index.php/admin/login");
+            exit;
+        }
         $data = array(
             'assets' => $this->assets,
         );
@@ -29,6 +34,10 @@ class Admin extends CI_Controller
 
     public function pmsg()
     {
+        if ($this->session->has_userdata('login_status') == false) {
+            header("Location: /wx/index.php/admin/login");
+            exit;
+        }
         $accounts = $this->Account->getAccounts();
         $data = array(
             'assets' => $this->assets,
@@ -41,6 +50,10 @@ class Admin extends CI_Controller
 
     public function wacc()
     {
+        if ($this->session->has_userdata('login_status') == false) {
+            header("Location: /wx/index.php/admin/login");
+            exit;
+        }
         $pg = $this->input->get('pg');
         $pn = $this->Account->getPageNumber(10);
         if ($pg == "") {
@@ -56,6 +69,26 @@ class Admin extends CI_Controller
         );
         $this->load->view('admin/header', $data);
         $this->load->view('admin/wacc', $data);
+        $this->load->view('admin/footer', $data);
+    }
+
+    public function login()
+    {
+        $data = array(
+            'assets' => $this->assets,
+        );
+        $this->load->view('admin/header', $data);
+        $this->load->view('admin/login', $data);
+        $this->load->view('admin/footer', $data);
+    }
+
+    public function forget()
+    {
+        $data = array(
+            'assets' => $this->assets,
+        );
+        $this->load->view('admin/header', $data);
+        $this->load->view('admin/forget', $data);
         $this->load->view('admin/footer', $data);
     }
 }
