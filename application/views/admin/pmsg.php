@@ -126,11 +126,11 @@
                     <fieldset>
                         <div class='form-group'>
                             <label class='control-label'>文章标题</label>
-                            <input class='form-control' placeholder='Enter username' type='text'>
+                            <input class='form-control' placeholder='Enter title' type='text'>
                         </div>
                         <div class='form-group'>
                             <label class='control-label'>文章内容</label>
-                            <textarea class='form-control' rows='10'></textarea>
+                            <textarea class='form-control' rows='10' placeholder='Enter content'></textarea>
                         </div>
                         <div class='form-group'>
                             <label class='control-label'>群发帐号</label>

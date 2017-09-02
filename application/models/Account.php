@@ -41,4 +41,32 @@ class Account extends CI_Model
     {
 
     }
+
+    /**
+     * acquire access token
+     * @param $account
+     * @return bool
+     */
+    public function getAccessToken($account)
+    {
+        $sql = "SELECT DISTINCT access_token from wcms_account where account='{$account}'";
+        $query = $this->db->query($sql);
+        if ($query->num_rows()) {
+            return $query->result()[0]->access_token;
+        } else {
+            return false;
+        }
+    }
+
+    /**
+     * update access token
+     * @param $account
+     * @param $accessToken
+     * @return mixed
+     */
+    public function updateAccessToken($account, $accessToken)
+    {
+        $sql = "update wcms_account set access_token='{$accessToken}' where account='{$account}'";
+        return $this->db->query($sql);
+    }
 }

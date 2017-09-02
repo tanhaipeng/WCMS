@@ -38,7 +38,7 @@
             <a class='dropdown-toggle' data-toggle='dropdown' href='#'>
                 <i class='icon-user'></i>
                 <strong>John DOE</strong>
-                <img class="img-rounded" src="http://placehold.it/20x20/ccc/777" />
+                <img class="img-rounded" src="http://placehold.it/20x20/ccc/777"/>
                 <b class='caret'></b>
             </a>
             <ul class='dropdown-menu'>
@@ -60,16 +60,17 @@
         <ul id='dock'>
             <li class='launcher'>
                 <i class='icon-dashboard'></i>
-                <a href="/wx/index.php/admin/index">Dashboard</a>
+                <a href="/wx/index.php/admin/index">平台概览</a>
             </li>
             <li class='launcher'>
                 <i class='icon-file-text-alt'></i>
-                <a href="/wx/index.php/admin/forms">Forms</a>
+                <a href="/wx/index.php/admin/pmsg">消息群发</a>
             </li>
             <li class='active launcher'>
                 <i class='icon-table'></i>
-                <a href="/wx/index.php/admin/tables">Tables</a>
+                <a href="/wx/index.php/admin/wacc">帐号管理</a>
             </li>
+            <!--
             <li class='launcher dropdown hover'>
                 <i class='icon-flag'></i>
                 <a href='#'>Reports</a>
@@ -98,15 +99,14 @@
                 <i class='icon-bug'></i>
                 <a href='#'>Feedback</a>
             </li>
+            -->
         </ul>
         <div data-toggle='tooltip' id='beaker' title='Made by lab2023'></div>
     </section>
     <!-- Tools -->
     <section id='tools'>
         <ul class='breadcrumb' id='breadcrumb'>
-            <li class='title'>Tables</li>
-            <li><a href="#">Lorem</a></li>
-            <li class='active'><a href="#">ipsum</a></li>
+            <li class='title'>帐号管理</li>
         </ul>
         <div id='toolbar'>
             <div class='btn-group'>
@@ -131,7 +131,7 @@
         <div class='panel panel-default grid'>
             <div class='panel-heading'>
                 <i class='icon-table icon-large'></i>
-                Default Table
+                帐号列表
                 <div class='panel-tools'>
                     <div class='btn-group'>
                         <a class='btn' href='#'>
@@ -152,7 +152,7 @@
             <div class='panel-body filters'>
                 <div class='row'>
                     <div class='col-md-9'>
-                        Add your custom filters here...
+
                     </div>
                     <div class='col-md-3'>
                         <div class='input-group'>
@@ -389,116 +389,5 @@
                 </div>
             </div>
         </div>
-        <div class='panel panel-default grid'>
-            <div class='panel-heading'>
-                <i class='icon-table icon-large'></i>
-                Padding Table
-            </div>
-            <table class='table'>
-                <thead>
-                <tr>
-                    <th>#</th>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>Username</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>Larry</td>
-                    <td>the Bird</td>
-                    <td>@twitter</td>
-                </tr>
-                </tbody>
-            </table>
-        </div>
-        <div class='panel panel-default grid'>
-            <div class='panel-heading'>
-                <i class='icon-table icon-large'></i>
-                Bordered Table
-            </div>
-            <div class='panel-body'>
-                <table class='table table-bordered'>
-                    <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>First Name</th>
-                        <th>Last Name</th>
-                        <th>Username</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>Larry</td>
-                        <td>the Bird</td>
-                        <td>@twitter</td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-        <div class='panel panel-default grid'>
-            <div class='panel-heading'>
-                <i class='icon-table icon-large'></i>
-                Condensed Table
-            </div>
-            <table class='table table-condensed'>
-                <thead>
-                <tr>
-                    <th>#</th>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>Username</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>Larry</td>
-                    <td>the Bird</td>
-                    <td>@twitter</td>
-                </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
 </div>
 </body>

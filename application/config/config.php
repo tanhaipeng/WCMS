@@ -530,6 +530,4 @@ $config['appid'] = 'wx1476ce77f8445a8d';
 $config['secret'] = 'c8572c23e6bc538bcadb70f8e0c5e5e6';
 $config['token_api'] = 'https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&';
 $config['server_api'] = 'https://api.weixin.qq.com/cgi-bin/getcallbackip?access_token=';
-$config['access_token'] = 'w8Fkyf7NKbFt8dcgCKR3omE-kX64G53MNskxhhHP7YL4eoiZdYthWjEMyUOVr7ya5y5Dnr9_v3d8StQYQZ1mg3bARvLW044iv0wfTuKCaHjA0mylPmoJAoc9gYkjWcXSWUTdAAAQON';
-
 $config['assets_path'] = 'http://tanhp.com/wx/assets';
