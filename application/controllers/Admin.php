@@ -41,8 +41,13 @@ class Admin extends CI_Controller
 
     public function wacc()
     {
+        $pg = $this->input->get('pg');
         $pn = $this->Account->getPageNumber(10);
-        $detail = $this->Account->getAccountDetail(0, 10);
+        if ($pg == "") {
+            $detail = $this->Account->getAccountDetail(0, 10);
+        } else {
+            $detail = $this->Account->getAccountDetail(intval($pg), 10);
+        }
         $data = array(
             'assets' => $this->assets,
             'pn' => $pn[0],

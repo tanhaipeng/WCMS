@@ -175,16 +175,17 @@
                     <li>
                         <a href='#'>«</a>
                     </li>
+                    <!--
                     <li class='active'>
                         <a href='#'>1</a>
                     </li>
+                    -->
                     <?php
-                    if ($pn > 1) {
-                        for ($index = 2; $index <= $pn; $index++) {
-                            echo "<li>
-                        <a href='#'>{$index}</a>
+                    for ($index = 1; $index <= $pn; $index++) {
+                        $start = $index - 1;
+                        echo "<li>
+                        <a href=\"/wx/index.php/admin/wacc?pg={$start}\">{$index}</a>
                     </li>";
-                        }
                     }
                     ?>
                     <li>
