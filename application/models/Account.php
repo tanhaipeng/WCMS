@@ -37,9 +37,35 @@ class Account extends CI_Model
 
     }
 
-    public function updateAccounts()
+    /**
+     * @param $pg
+     * @param $pn
+     * @return array
+     */
+    public function getAccountDetail($pg, $pn)
     {
+        $arrAcc = array();
+        $start = $pg * $pn;
+        $sql = "SELECT DISTINCT * from wcms_account limit {$start},{$pn}";
+        $query = $this->db->query($sql);
+        if ($query) {
+            foreach ($query->result() as $row) {
+                $arrAcc[] = array(
+                    'account' => $row->account,
+                    'appid' => $row->appid,
+                    'token' => $row->token,
+                    'update' => $row->update_time,
+                );
+            }
+        }
+        return $arrAcc;
+    }
 
+    public function getPageNumber($pn)
+    {
+        $sql = "SELECT DISTINCT * from wcms_account";
+        $query = $this->db->query($sql);
+        return [ceil($query->num_rows() / $pn), $query->num_rows()];
     }
 
     /**
@@ -66,7 +92,7 @@ class Account extends CI_Model
      */
     public function updateAccessToken($account, $accessToken)
     {
-        $sql = "update wcms_account set access_token='{$accessToken}' where account='{$account}'";
+        $sql = "update wcms_account set access_token='{$accessToken}', update_time=NOW() where account='{$account}'";
         return $this->db->query($sql);
     }
 

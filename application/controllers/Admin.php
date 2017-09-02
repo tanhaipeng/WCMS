@@ -41,8 +41,13 @@ class Admin extends CI_Controller
 
     public function wacc()
     {
+        $pn = $this->Account->getPageNumber(10);
+        $detail = $this->Account->getAccountDetail(0, 10);
         $data = array(
             'assets' => $this->assets,
+            'pn' => $pn[0],
+            'total' => $pn[1],
+            'detail' => $detail,
         );
         $this->load->view('admin/header', $data);
         $this->load->view('admin/wacc', $data);

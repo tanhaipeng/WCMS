@@ -70,36 +70,6 @@
                 <i class='icon-table'></i>
                 <a href="/wx/index.php/admin/wacc">帐号管理</a>
             </li>
-            <!--
-            <li class='launcher dropdown hover'>
-                <i class='icon-flag'></i>
-                <a href='#'>Reports</a>
-                <ul class='dropdown-menu'>
-                    <li class='dropdown-header'>Launcher description</li>
-                    <li>
-                        <a href='#'>Action</a>
-                    </li>
-                    <li>
-                        <a href='#'>Another action</a>
-                    </li>
-                    <li>
-                        <a href='#'>Something else here</a>
-                    </li>
-                </ul>
-            </li>
-            <li class='launcher'>
-                <i class='icon-bookmark'></i>
-                <a href='#'>Bookmarks</a>
-            </li>
-            <li class='launcher'>
-                <i class='icon-cloud'></i>
-                <a href='#'>Backup</a>
-            </li>
-            <li class='launcher'>
-                <i class='icon-bug'></i>
-                <a href='#'>Feedback</a>
-            </li>
-            -->
         </ul>
         <div data-toggle='tooltip' id='beaker' title='Made by lab2023'></div>
     </section>
@@ -170,185 +140,34 @@
                 <thead>
                 <tr>
                     <th>#</th>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>Username</th>
+                    <th>Account</th>
+                    <th>Appid</th>
+                    <th>Token</th>
+                    <th>Update</th>
                     <th class='actions'>
                         Actions
                     </th>
                 </tr>
                 </thead>
                 <tbody>
-                <tr class='success'>
-                    <td>1</td>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
+                <?php
+                $index = 1;
+                foreach ($detail as $item) {
+                    echo "<tr>
+                    <td>{$index}</td>
+                    <td>{$item['account']}</td>
+                    <td>{$item['appid']}</td>
+                    <td>{$item['token']}</td>
+                    <td>{$item['update']}</td>
                     <td class='action'>
-                        <a class='btn btn-success' data-toggle='tooltip' href='#' title='Zoom'>
-                            <i class='icon-zoom-in'></i>
-                        </a>
-                        <a class='btn btn-info' href='#'>
-                            <i class='icon-edit'></i>
-                        </a>
                         <a class='btn btn-danger' href='#'>
                             <i class='icon-trash'></i>
                         </a>
                     </td>
-                </tr>
-                <tr class='danger'>
-                    <td>2</td>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                    <td class='action'>
-                        <a class='btn btn-success' data-toggle='tooltip' href='#' title='Zoom'>
-                            <i class='icon-zoom-in'></i>
-                        </a>
-                        <a class='btn btn-info' href='#'>
-                            <i class='icon-edit'></i>
-                        </a>
-                        <a class='btn btn-danger' href='#'>
-                            <i class='icon-trash'></i>
-                        </a>
-                    </td>
-                </tr>
-                <tr class='warning'>
-                    <td>3</td>
-                    <td>Larry</td>
-                    <td>the Bird</td>
-                    <td>@twitter</td>
-                    <td class='action'>
-                        <a class='btn btn-success' data-toggle='tooltip' href='#' title='Zoom'>
-                            <i class='icon-zoom-in'></i>
-                        </a>
-                        <a class='btn btn-info' href='#'>
-                            <i class='icon-edit'></i>
-                        </a>
-                        <a class='btn btn-danger' href='#'>
-                            <i class='icon-trash'></i>
-                        </a>
-                    </td>
-                </tr>
-                <tr class='active'>
-                    <td>4</td>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                    <td class='action'>
-                        <a class='btn btn-success' data-toggle='tooltip' href='#' title='Zoom'>
-                            <i class='icon-zoom-in'></i>
-                        </a>
-                        <a class='btn btn-info' href='#'>
-                            <i class='icon-edit'></i>
-                        </a>
-                        <a class='btn btn-danger' href='#'>
-                            <i class='icon-trash'></i>
-                        </a>
-                    </td>
-                </tr>
-                <tr class='disabled'>
-                    <td>5</td>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                    <td class='action'>
-                        <a class='btn btn-success' data-toggle='tooltip' href='#' title='Zoom'>
-                            <i class='icon-zoom-in'></i>
-                        </a>
-                        <a class='btn btn-info' href='#'>
-                            <i class='icon-edit'></i>
-                        </a>
-                        <a class='btn btn-danger' href='#'>
-                            <i class='icon-trash'></i>
-                        </a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>6</td>
-                    <td>Larry</td>
-                    <td>the Bird</td>
-                    <td>@twitter</td>
-                    <td class='action'>
-                        <a class='btn btn-success' data-toggle='tooltip' href='#' title='Zoom'>
-                            <i class='icon-zoom-in'></i>
-                        </a>
-                        <a class='btn btn-info' href='#'>
-                            <i class='icon-edit'></i>
-                        </a>
-                        <a class='btn btn-danger' href='#'>
-                            <i class='icon-trash'></i>
-                        </a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>7</td>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                    <td class='action'>
-                        <a class='btn btn-success' data-toggle='tooltip' href='#' title='Zoom'>
-                            <i class='icon-zoom-in'></i>
-                        </a>
-                        <a class='btn btn-info' href='#'>
-                            <i class='icon-edit'></i>
-                        </a>
-                        <a class='btn btn-danger' href='#'>
-                            <i class='icon-trash'></i>
-                        </a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>8</td>
-                    <td>Larry</td>
-                    <td>the Bird</td>
-                    <td>@twitter</td>
-                    <td class='action'>
-                        <a class='btn btn-success' data-toggle='tooltip' href='#' title='Zoom'>
-                            <i class='icon-zoom-in'></i>
-                        </a>
-                        <a class='btn btn-info' href='#'>
-                            <i class='icon-edit'></i>
-                        </a>
-                        <a class='btn btn-danger' href='#'>
-                            <i class='icon-trash'></i>
-                        </a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>9</td>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                    <td class='action'>
-                        <a class='btn btn-success' data-toggle='tooltip' href='#' title='Zoom'>
-                            <i class='icon-zoom-in'></i>
-                        </a>
-                        <a class='btn btn-info' href='#'>
-                            <i class='icon-edit'></i>
-                        </a>
-                        <a class='btn btn-danger' href='#'>
-                            <i class='icon-trash'></i>
-                        </a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>10</td>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                    <td class='action'>
-                        <a class='btn btn-success' data-toggle='tooltip' href='#' title='Zoom'>
-                            <i class='icon-zoom-in'></i>
-                        </a>
-                        <a class='btn btn-info' href='#'>
-                            <i class='icon-edit'></i>
-                        </a>
-                        <a class='btn btn-danger' href='#'>
-                            <i class='icon-trash'></i>
-                        </a>
-                    </td>
-                </tr>
+                </tr>";
+                    $index = $index + 1;
+                }
+                ?>
                 </tbody>
             </table>
             <div class='panel-footer'>
@@ -359,35 +178,23 @@
                     <li class='active'>
                         <a href='#'>1</a>
                     </li>
-                    <li>
-                        <a href='#'>2</a>
-                    </li>
-                    <li>
-                        <a href='#'>3</a>
-                    </li>
-                    <li>
-                        <a href='#'>4</a>
-                    </li>
-                    <li>
-                        <a href='#'>5</a>
-                    </li>
-                    <li>
-                        <a href='#'>6</a>
-                    </li>
-                    <li>
-                        <a href='#'>7</a>
-                    </li>
-                    <li>
-                        <a href='#'>8</a>
-                    </li>
+                    <?php
+                    if ($pn > 1) {
+                        for ($index = 2; $index <= $pn; $index++) {
+                            echo "<li>
+                        <a href='#'>{$index}</a>
+                    </li>";
+                        }
+                    }
+                    ?>
                     <li>
                         <a href='#'>»</a>
                     </li>
                 </ul>
                 <div class='pull-right'>
-                    Showing 1 to 10 of 32 entries
+                    Showing <?= count($detail); ?> to 10 of <?= $total; ?> entries
                 </div>
             </div>
         </div>
-</div>
+    </div>
 </body>
