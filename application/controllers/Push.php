@@ -11,6 +11,8 @@ class Push extends CI_Controller
     public function __construct()
     {
         parent::__construct();
+        $this->load->model('Reply');
+        $this->load->model('Account');
     }
 
     public function message()
@@ -33,8 +35,26 @@ class Push extends CI_Controller
         echo $res;
     }
 
-    public function template()
+    /**
+     * execute push
+     */
+    public function exec()
     {
-
+        $arrAcc = array();
+        $content = "";
+        foreach ($arrAcc as $acc) {
+            // get token from db
+            $token = $this->Account->getAccessToken($acc);
+            if ($token) {
+                //push
+            } else {
+                $info = $this->Account->getAppidSecret($acc);
+                $token = $this->Reply->getWxToken($info['appid'], $info['secret']);
+                if ($token) {
+                    $this->Account->updateAccessToken($acc, $token);
+                    // push
+                }
+            }
+        }
     }
 }

@@ -69,4 +69,16 @@ class Account extends CI_Model
         $sql = "update wcms_account set access_token='{$accessToken}' where account='{$account}'";
         return $this->db->query($sql);
     }
+
+    public function getAppidSecret($account)
+    {
+        $sql = "SELECT DISTINCT appid,secret from wcms_account where account='{$account}'";
+        $query = $this->db->query($sql);
+        if ($query->num_rows()) {
+            return array('appid' => $query->result()[0]->appid,
+                'secret' => $query->result()[0]->secret);
+        } else {
+            return false;
+        }
+    }
 }
