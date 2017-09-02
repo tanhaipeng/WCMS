@@ -122,39 +122,38 @@
                 消息编辑
             </div>
             <div class='panel-body'>
-                <form>
-                    <fieldset>
-                        <div class='form-group'>
-                            <label class='control-label'>文章标题</label>
-                            <input class='form-control' placeholder='Enter title' type='text'>
+                <fieldset>
+                    <div class='form-group'>
+                        <label class='control-label'>文章标题</label>
+                        <input class='form-control' placeholder='Enter title' type='text' id="push_title">
+                    </div>
+                    <div class='form-group'>
+                        <label class='control-label'>文章内容</label>
+                        <textarea class='form-control' rows='10' placeholder='Enter content'
+                                  id="push_content"></textarea>
+                    </div>
+                    <div class='form-group'>
+                        <label class='control-label'>群发帐号</label>
+                        <br>
+                        <div class='checkbox-inline'>
+                            <input type='checkbox' value='all' id="check_all">
+                            全选
                         </div>
-                        <div class='form-group'>
-                            <label class='control-label'>文章内容</label>
-                            <textarea class='form-control' rows='10' placeholder='Enter content'></textarea>
-                        </div>
-                        <div class='form-group'>
-                            <label class='control-label'>群发帐号</label>
-                            <br>
-                            <div class='checkbox-inline'>
-                                <input type='checkbox' value='all'>
-                                全选
-                            </div>
-                            <br>
-                            <?php
-                            foreach ($accounts as $account) {
-                                echo "<div class='checkbox-inline'>
+                        <br>
+                        <?php
+                        foreach ($accounts as $account) {
+                            echo "<div class='checkbox-inline'>
                                 <input type='checkbox' value='{$account}'>
                                 {$account}
                                 </div>";
-                            }
-                            ?>
-                        </div>
-                    </fieldset>
-                    <div class='form-actions'>
-                        <button class='btn btn-default' type='submit'>提交</button>
-                        <a class='btn' href='#'>取消</a>
+                        }
+                        ?>
                     </div>
-                </form>
+                </fieldset>
+                <div class='form-actions'>
+                    <button class='btn btn-default' id="push_btn">提交</button>
+                    <a class='btn' href='#'>取消</a>
+                </div>
             </div>
         </div>
     </div>

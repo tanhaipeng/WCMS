@@ -20,8 +20,9 @@ class Push extends CI_Controller
      */
     public function exec()
     {
-        $arrAcc = array('tan_haipeng', 'tan_haipeng', 'tan_haipeng');
-        $content = "123456";
+        $strAcc = $this->input->get('account');
+        $arrAcc = explode(',', $strAcc);
+        $content = $this->input->get('content');
         foreach ($arrAcc as $acc) {
             $token = $this->Account->getAccessToken($acc);
             if ($token) {

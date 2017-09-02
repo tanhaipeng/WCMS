@@ -220,7 +220,7 @@ class Reply extends CI_Model
         $postArr = array(
             'touser' => $touser,
             'text' => array(
-                'content' => $content,
+                'content' => urlencode($content),
             ),
             'msgtype' => 'text',
         );
