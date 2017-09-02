@@ -20,10 +20,9 @@ class Push extends CI_Controller
      */
     public function exec()
     {
-        $arrAcc = array('tan_haipeng');
-        $content = "";
+        $arrAcc = array('tan_haipeng', 'tan_haipeng', 'tan_haipeng');
+        $content = "123456";
         foreach ($arrAcc as $acc) {
-            // get token from db
             $token = $this->Account->getAccessToken($acc);
             if ($token) {
                 $fans = $this->Reply->getFansList($token);
@@ -38,6 +37,10 @@ class Push extends CI_Controller
                                 $this->Reply->pushTextMsg($token, $user, $content);
                             }
                         }
+                    }
+                } else {
+                    foreach ($fans as $user) {
+                        $this->Reply->pushTextMsg($token, $user, $content);
                     }
                 }
             }

@@ -22,11 +22,15 @@ class Reply extends CI_Model
     public function getWxToken($appid, $secret)
     {
         $param = array(
-            'appid' => $this->config->item('appid'),
-            'secret' => $this->config->item('secret'),
+            'appid' => $appid,
+            'secret' => $secret,
         );
         $api = $this->config->item('token_api') . '&' . http_build_query($param);
-        $res = json_encode(file_get_contents($api, true));
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $api);
+        curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        $res = json_decode(curl_exec($ch), true);
         if ($res != false && isset($res['access_token'])) {
             return $res['access_token'];
         }
@@ -41,7 +45,11 @@ class Reply extends CI_Model
     public function getFansList($access_token)
     {
         $api = $this->config->item('fans_api') . $access_token;
-        $res = json_encode(file_get_contents($api, true));
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $api);
+        curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        $res = json_decode(curl_exec($ch), true);
         if ($res != false && isset($res['total'])) {
             return $res['data']['openid'];
         }
@@ -56,7 +64,11 @@ class Reply extends CI_Model
     public function getWxIp($token)
     {
         $api = $this->config->item('server_api') . $token;
-        $res = json_encode(file_get_contents($api, true));
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $api);
+        curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        $res = json_decode(curl_exec($ch), true);
         if ($res != false && isset($res['ip_list'])) {
             return $res['ip_list'];
         }
