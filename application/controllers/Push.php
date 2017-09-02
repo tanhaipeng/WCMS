@@ -15,44 +15,30 @@ class Push extends CI_Controller
         $this->load->model('Account');
     }
 
-    public function message()
-    {
-        $url = 'https://api.weixin.qq.com/cgi-bin/message/mass/preview?access_token=' . $this->config->item('access_token');
-        $postArr = array(
-            'touser' => 'oLu5f0zGLtwgIBDmk5A13BFRTKvw',
-            'text' => array(
-                'content' => '123344343',
-            ),
-            'msgtype' => 'text',
-        );
-        $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, $url);
-        curl_setopt($ch, CURLOPT_POST, 1);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, urldecode(json_encode($postArr)));
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-        $res = curl_exec($ch);
-        curl_close($ch);
-        echo $res;
-    }
-
     /**
      * execute push
      */
     public function exec()
     {
-        $arrAcc = array();
+        $arrAcc = array('tan_haipeng');
         $content = "";
         foreach ($arrAcc as $acc) {
             // get token from db
             $token = $this->Account->getAccessToken($acc);
             if ($token) {
-                //push
-            } else {
-                $info = $this->Account->getAppidSecret($acc);
-                $token = $this->Reply->getWxToken($info['appid'], $info['secret']);
-                if ($token) {
-                    $this->Account->updateAccessToken($acc, $token);
-                    // push
+                $fans = $this->Reply->getFansList($token);
+                if ($fans == false) {
+                    $info = $this->Account->getAppidSecret($acc);
+                    $token = $this->Reply->getWxToken($info['appid'], $info['secret']);
+                    if ($token) {
+                        $this->Account->updateAccessToken($acc, $token);
+                        $fans = $this->Reply->getFansList($token);
+                        if ($fans) {
+                            foreach ($fans as $user) {
+                                $this->Reply->pushTextMsg($token, $user, $content);
+                            }
+                        }
+                    }
                 }
             }
         }

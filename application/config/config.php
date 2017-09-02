@@ -531,3 +531,5 @@ $config['secret'] = 'c8572c23e6bc538bcadb70f8e0c5e5e6';
 $config['token_api'] = 'https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&';
 $config['server_api'] = 'https://api.weixin.qq.com/cgi-bin/getcallbackip?access_token=';
 $config['assets_path'] = 'http://tanhp.com/wx/assets';
+$config['fans_api'] = 'https://api.weixin.qq.com/cgi-bin/user/get?next_openid=&access_token=';
+$config['push_api'] = 'https://api.weixin.qq.com/cgi-bin/message/mass/preview?access_token=';

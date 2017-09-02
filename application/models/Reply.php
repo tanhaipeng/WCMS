@@ -34,6 +34,21 @@ class Reply extends CI_Model
     }
 
     /**
+     * 获取关注者列表
+     * @param $access_token
+     * @return array
+     */
+    public function getFansList($access_token)
+    {
+        $api = $this->config->item('fans_api') . $access_token;
+        $res = json_encode(file_get_contents($api, true));
+        if ($res != false && isset($res['total'])) {
+            return $res['data']['openid'];
+        }
+        return false;
+    }
+
+    /**
      * 获取微信服务器地址
      * @param $token
      * @return bool
@@ -179,5 +194,30 @@ class Reply extends CI_Model
     private function getDbInfo($key)
     {
 
+    }
+
+    /**
+     * push text message
+     * @param $access_token
+     * @param $touser
+     * @param $content
+     */
+    public function pushTextMsg($access_token, $touser, $content)
+    {
+        $url = $this->config->item('push_api') . $access_token;
+        $postArr = array(
+            'touser' => $touser,
+            'text' => array(
+                'content' => $content,
+            ),
+            'msgtype' => 'text',
+        );
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_POST, 1);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, urldecode(json_encode($postArr)));
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        curl_exec($ch);
+        curl_close($ch);
     }
 }
