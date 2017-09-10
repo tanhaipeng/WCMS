@@ -160,7 +160,7 @@
                     <td>{$item['token']}</td>
                     <td>{$item['update']}</td>
                     <td class='action'>
-                        <a class='btn btn-danger' href='#'>
+                        <a class='btn btn-danger' href='javascript:void(0)' onclick=\"delAcccount('{$item['account']}');return false;\">
                             <i class='icon-trash'></i>
                         </a>
                     </td>

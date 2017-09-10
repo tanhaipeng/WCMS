@@ -9,6 +9,7 @@
 class Admin extends CI_Controller
 {
     private $assets;
+    private $ts;
 
     public function __construct()
     {
@@ -16,6 +17,7 @@ class Admin extends CI_Controller
         $this->load->library('session');
         $this->load->model('Account');
         $this->assets = $this->config->item('assets_path');
+        $this->ts = strval(time());
     }
 
     public function index()
@@ -26,6 +28,7 @@ class Admin extends CI_Controller
         }
         $data = array(
             'assets' => $this->assets,
+            'ts' => $this->ts,
         );
         $this->load->view('admin/header', $data);
         $this->load->view('admin/index', $data);
@@ -42,6 +45,7 @@ class Admin extends CI_Controller
         $data = array(
             'assets' => $this->assets,
             'accounts' => $accounts,
+            'ts' => $this->ts,
         );
         $this->load->view('admin/header', $data);
         $this->load->view('admin/pmsg', $data);
@@ -69,6 +73,7 @@ class Admin extends CI_Controller
             'pn' => $pn[0],
             'total' => $pn[1],
             'detail' => $detail,
+            'ts' => $this->ts,
         );
         $this->load->view('admin/header', $data);
         $this->load->view('admin/wacc', $data);
@@ -79,6 +84,7 @@ class Admin extends CI_Controller
     {
         $data = array(
             'assets' => $this->assets,
+            'ts' => $this->ts,
         );
         $this->load->view('admin/header', $data);
         $this->load->view('admin/login', $data);
@@ -89,9 +95,18 @@ class Admin extends CI_Controller
     {
         $data = array(
             'assets' => $this->assets,
+            'ts' => $this->ts,
         );
         $this->load->view('admin/header', $data);
         $this->load->view('admin/forget', $data);
         $this->load->view('admin/footer', $data);
+    }
+
+    public function delacc()
+    {
+        $account = $this->input->post('acc');
+        if ($account) {
+            $this->Account->deleteAccounts($account);
+        }
     }
 }

@@ -32,9 +32,10 @@ class Account extends CI_Model
 
     }
 
-    public function deleteAccounts()
+    public function deleteAccounts($account)
     {
-
+        $sql = "delete from wcms_account where account='{$account}'";
+        $this->db->query($sql);
     }
 
     /**

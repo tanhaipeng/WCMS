@@ -19,7 +19,10 @@ function sendPush() {
     if (account.length > 0 && content != "") {
         console.log(content);
         console.log(account.toString());
-        $.get("http://tanhp.com/wx/index.php/push/exec", {account: account.toString(), content: content}, function (result) {
+        $.get("http://tanhp.com/wx/index.php/push/exec", {
+            account: account.toString(),
+            content: content
+        }, function (result) {
             alert('推送成功');
         });
     }
@@ -47,4 +50,14 @@ function getAccounts() {
         }
     });
     return accounts;
+}
+
+function delAcccount(account) {
+    if (account) {
+        $.post("http://tanhp.com/wx/index.php/admin/delacc", {acc: account}, function (result) {
+            console.log(result);
+            console.log(account);
+            window.location.reload();
+        });
+    }
 }
