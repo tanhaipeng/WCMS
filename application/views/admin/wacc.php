@@ -173,13 +173,8 @@
             <div class='panel-footer'>
                 <ul class='pagination pagination-sm'>
                     <li>
-                        <a href='#'>«</a>
+                        <a href='/wx/index.php/admin/wacc?pg=0'>«</a>
                     </li>
-                    <!--
-                    <li class='active'>
-                        <a href='#'>1</a>
-                    </li>
-                    -->
                     <?php
                     for ($index = 1; $index <= $pn; $index++) {
                         $start = $index - 1;
@@ -189,7 +184,10 @@
                     }
                     ?>
                     <li>
-                        <a href='#'>»</a>
+                        <?php
+                        $end = $pn - 1;
+                        echo "<a href='/wx/index.php/admin/wacc?pg={$end}'>»</a>";
+                        ?>
                     </li>
                 </ul>
                 <div class='pull-right'>

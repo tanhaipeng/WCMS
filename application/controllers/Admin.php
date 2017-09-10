@@ -54,8 +54,11 @@ class Admin extends CI_Controller
             header("Location: /wx/index.php/admin/login");
             exit;
         }
+        // 分页大小
         $pg = $this->input->get('pg');
+        // 分页数
         $pn = $this->Account->getPageNumber(10);
+        // 获取指定分页数据
         if ($pg == "") {
             $detail = $this->Account->getAccountDetail(0, 10);
         } else {
