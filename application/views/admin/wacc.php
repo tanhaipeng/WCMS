@@ -156,7 +156,11 @@
                     ?>
                     <li>
                         <?php
-                        $end = $pn - 1;
+                        if ($pn > 0) {
+                            $end = $pn - 1;
+                        } else {
+                            $end = 0;
+                        }
                         echo "<a href='/wx/index.php/admin/wacc?pg={$end}'>»</a>";
                         ?>
                     </li>
