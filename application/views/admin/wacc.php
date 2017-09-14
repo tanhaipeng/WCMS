@@ -95,6 +95,8 @@
             </div>
             <div class='panel-body filters'>
                 <div class='row'>
+                    <div class='col-md-9'>
+                    </div>
                     <div class='col-md-3'>
                         <div class='input-group'>
                             <input class='form-control' placeholder='Quick search...' type='text'>
@@ -156,11 +158,7 @@
                     ?>
                     <li>
                         <?php
-                        if ($pn > 0) {
-                            $end = $pn - 1;
-                        } else {
-                            $end = 0;
-                        }
+                        $end = $pn - 1;
                         echo "<a href='/wx/index.php/admin/wacc?pg={$end}'>»</a>";
                         ?>
                     </li>
