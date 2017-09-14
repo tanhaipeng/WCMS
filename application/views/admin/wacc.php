@@ -71,30 +71,12 @@
                 <a href="/wx/index.php/admin/wacc">帐号管理</a>
             </li>
         </ul>
-        <div data-toggle='tooltip' id='beaker' title='Made by lab2023'></div>
     </section>
     <!-- Tools -->
     <section id='tools'>
         <ul class='breadcrumb' id='breadcrumb'>
             <li class='title'>帐号管理</li>
         </ul>
-        <div id='toolbar'>
-            <div class='btn-group'>
-                <a class='btn' data-toggle='toolbar-tooltip' href='#' title='Building'>
-                    <i class='icon-building'></i>
-                </a>
-                <a class='btn' data-toggle='toolbar-tooltip' href='#' title='Laptop'>
-                    <i class='icon-laptop'></i>
-                </a>
-                <a class='btn' data-toggle='toolbar-tooltip' href='#' title='Calendar'>
-                    <i class='icon-calendar'></i>
-                    <span class='badge'>3</span>
-                </a>
-                <a class='btn' data-toggle='toolbar-tooltip' href='#' title='Lemon'>
-                    <i class='icon-lemon'></i>
-                </a>
-            </div>
-        </div>
     </section>
     <!-- Content -->
     <div id='content'>
@@ -106,32 +88,21 @@
                     <div class='btn-group'>
                         <a class='btn' href='#'>
                             <i class='icon-wrench'></i>
-                            Settings
-                        </a>
-                        <a class='btn' href='#'>
-                            <i class='icon-filter'></i>
-                            Filters
-                        </a>
-                        <a class='btn' data-toggle='toolbar-tooltip' href='#' title='Reload'>
-                            <i class='icon-refresh'></i>
+                            新增
                         </a>
                     </div>
-                    <div class='badge'>3 record</div>
                 </div>
             </div>
             <div class='panel-body filters'>
                 <div class='row'>
-                    <div class='col-md-9'>
-
-                    </div>
                     <div class='col-md-3'>
                         <div class='input-group'>
                             <input class='form-control' placeholder='Quick search...' type='text'>
                             <span class='input-group-btn'>
-                    <button class='btn' type='button'>
-                      <i class='icon-search'></i>
-                    </button>
-                  </span>
+                                <button class='btn' type='button'>
+                                  <i class='icon-search'></i>
+                                </button>
+                            </span>
                         </div>
                     </div>
                 </div>
