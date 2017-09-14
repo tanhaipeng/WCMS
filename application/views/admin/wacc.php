@@ -3,7 +3,7 @@
 <div class='navbar navbar-default' id='navbar'>
     <a class='navbar-brand' href='#'>
         <i class='icon-beer'></i>
-        Hierapolis
+        微信公共号管理平台
     </a>
     <ul class='nav navbar-nav pull-right'>
         <li class='dropdown user'>
@@ -14,12 +14,9 @@
                 <b class='caret'></b>
             </a>
             <ul class='dropdown-menu'>
-                <li>
-                    <a href='#'>Edit Profile</a>
-                </li>
                 <li class='divider'></li>
                 <li>
-                    <a href="/">Sign out</a>
+                    <a href="/">注销</a>
                 </li>
             </ul>
         </li>
@@ -71,9 +68,9 @@
                     </div>
                     <div class='col-md-3'>
                         <div class='input-group'>
-                            <input class='form-control' placeholder='Quick search...' type='text'>
+                            <input class='form-control' id="search_input" placeholder='Quick search...' type='text'>
                             <span class='input-group-btn'>
-                                <button class='btn' type='button'>
+                                <button class='btn' type='button' id="search_btn">
                                   <i class='icon-search'></i>
                                 </button>
                             </span>

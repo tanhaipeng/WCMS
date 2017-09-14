@@ -2,6 +2,10 @@
  * Created by tanhaipeng on 2017/8/31.
  */
 
+// php api config
+var push_api = "http://tanhp.com/wx/index.php/push/exec";
+var del_api = "http://tanhp.com/wx/index.php/admin/delacc";
+
 $(document).ready(function () {
     // register event
     $("#push_btn").click(function () {
@@ -11,6 +15,11 @@ $(document).ready(function () {
     $("#check_all").click(function () {
         selectCheck();
     });
+    // search
+    $("#search_btn").click(function () {
+        var search = $("#search_input").val();
+        alert(search);
+    });
 });
 
 function sendPush() {
@@ -19,7 +28,7 @@ function sendPush() {
     if (account.length > 0 && content != "") {
         console.log(content);
         console.log(account.toString());
-        $.get("http://tanhp.com/wx/index.php/push/exec", {
+        $.get(push_api, {
             account: account.toString(),
             content: content
         }, function (result) {
@@ -54,7 +63,7 @@ function getAccounts() {
 
 function delAcccount(account) {
     if (account) {
-        $.post("http://tanhp.com/wx/index.php/admin/delacc", {acc: account}, function (result) {
+        $.post(del_api, {acc: account}, function (result) {
             console.log(result);
             console.log(account);
             window.location.reload();
