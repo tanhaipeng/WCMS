@@ -41,13 +41,19 @@ class Account extends CI_Model
     /**
      * @param $pg
      * @param $pn
+     * @param $sc
      * @return array
      */
-    public function getAccountDetail($pg, $pn)
+    public function getAccountDetail($pg, $pn, $sc)
     {
         $arrAcc = array();
         $start = $pg * $pn;
-        $sql = "SELECT DISTINCT * from wcms_account limit {$start},{$pn}";
+        if ($sc == "") {
+            $sql = "SELECT DISTINCT * from wcms_account limit {$start},{$pn}";
+        } else {
+            $sql = "SELECT DISTINCT * from wcms_account where account like '%{$sc}%' limit {$start},{$pn}";
+        }
+
         $query = $this->db->query($sql);
         if ($query) {
             foreach ($query->result() as $row) {

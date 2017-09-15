@@ -68,7 +68,7 @@
                     </div>
                     <div class='col-md-3'>
                         <div class='input-group'>
-                            <input class='form-control' id="search_input" placeholder='Quick search...' type='text'>
+                            <input class='form-control' id="search_input" placeholder='帐号检索...' type='text'>
                             <span class='input-group-btn'>
                                 <button class='btn' type='button' id="search_btn">
                                   <i class='icon-search'></i>
@@ -121,7 +121,7 @@
                     for ($index = 1; $index <= $pn; $index++) {
                         $start = $index - 1;
                         echo "<li>
-                        <a href=\"/wx/index.php/admin/wacc?pg={$start}\">{$index}</a>
+                        <a href='/wx/index.php/admin/wacc?pg={$start}&sc={$sc}'>{$index}</a>
                     </li>";
                     }
                     ?>
@@ -132,7 +132,7 @@
                         } else {
                             $end = 0;
                         }
-                        echo "<a href='/wx/index.php/admin/wacc?pg={$end}'>»</a>";
+                        echo "<a href='/wx/index.php/admin/wacc?pg={$end}&sc={$sc}'>»</a>";
                         ?>
                     </li>
                 </ul>

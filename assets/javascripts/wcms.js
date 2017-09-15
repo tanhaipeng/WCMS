@@ -17,8 +17,8 @@ $(document).ready(function () {
     });
     // search
     $("#search_btn").click(function () {
-        var search = $("#search_input").val();
-        alert(search);
+        var url = "http://tanhp.com/wx/index.php/admin/wacc?sc=" + $("#search_input").val();
+        window.location = url;
     });
 });
 

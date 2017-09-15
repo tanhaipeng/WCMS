@@ -62,11 +62,14 @@ class Admin extends CI_Controller
         $pg = $this->input->get('pg');
         // 分页数
         $pn = $this->Account->getPageNumber(10);
+        // 搜索内容
+        $sc = $this->input->get('sc');
+
         // 获取指定分页数据
         if ($pg == "") {
-            $detail = $this->Account->getAccountDetail(0, 10);
+            $detail = $this->Account->getAccountDetail(0, 10, $sc);
         } else {
-            $detail = $this->Account->getAccountDetail(intval($pg), 10);
+            $detail = $this->Account->getAccountDetail(intval($pg), 10, $sc);
         }
         $data = array(
             'assets' => $this->assets,
@@ -74,6 +77,7 @@ class Admin extends CI_Controller
             'total' => $pn[1],
             'detail' => $detail,
             'ts' => $this->ts,
+            'sc' => $sc,
         );
         $this->load->view('admin/header', $data);
         $this->load->view('admin/wacc', $data);
